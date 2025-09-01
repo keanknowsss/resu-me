@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+.paper {
+    font-family: "Rubik", "Montserrat", sans-serif;
+    font-size: calc(1vh);
+    line-height: 1em;
+
+    /* padding: 2.6rem 3rem; */
+    padding: 3.5em;
+}
+
+.r-pe-5 {
+    padding-right: 2.2em;
+}
+
+.r-gap-2 {
+    gap: 0.8em;
+}
+.r-gap-3 {
+    gap: 1.3em;
+}
+.r-gap-x-3 {
+    column-gap: 1.3em;
+}
+.r-gap-y-2 {
+    row-gap: 0.6em;
+}
+
+.r-mt-1-2 {
+    margin-top: 0.3em;
+}
+.r-mt-1 {
+    margin-top: 0.5em
+}
+.r-mt-4 {
+    margin-top: 1.3em;
+}
+
+.r-mb-2 {
+    margin-bottom: 0.9em
+}
+.r-mb-3 {
+    margin-bottom: 1.3em;
+}
+.r-mb-5 {
+    margin-bottom: 2.2em;
+}
+
+.r-p-2 {
+    padding: 0.9em;
+}
+.r-ps-5 {
+    padding-left: 2.2em;
+}
+.r-pb-5 {
+    padding-bottom: 2.2em;
+}
+
+.r-text-xs {
+    font-size: 1.3em;
+}
+
+.r-leading-3 {
+    line-height: 1em;
+}
+.r-leading-6 {
+    line-height: 1.8em;
+}
+
+.content-text, .text-icons {
+    font-size: 1.15em;
+    line-height: 1.2em;
+}
+
+.name {
+    font-size: 3.8em;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 0.8em;
+    letter-spacing: 0.03ch
+}
+
+.position {
+    @apply text-blue-500;
+    font-size: 1.8em;
+    line-height: 1.5em;
+}
+
+.text-icons {
+    display: flex;
+    /* align-items: center; */
+    gap: 0.2em;
+}
+
+.text-icons>svg {
+    @apply opacity-35;
+}
+
+h3.section-title {
+    text-transform: uppercase;
+    border-bottom: 0.1em solid black;
+    margin-bottom: 0.9em;
+    line-height: 1.2em;
+    font-size: 1.5em;
+}
+
+.subsection-title {
+    font-size: 1.6em;
+    line-height: 1.5em;
+}
+
+.subsection-subtitle {
+    font-size: 1.4em;
+    line-height: 1.1em;
+    @apply text-blue-500;
+}
+
+.skills-list {
+    @apply border-b ;
+    padding-inline: 0.5em;
+    padding-bottom: 0.2em;
+}

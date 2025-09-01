@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+body {
+  height: 100vh;
+  overflow: clip;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+
+}
+
+section {
+  height: 100%;
+  flex-basis: 35%;
+  display: flex;
+  @apply border-r;
+}
+
+main {
+  height: 100%;
+  flex-basis: 65%;
+  @apply bg-gray-400;
+  box-shadow: 2px 0px 3px 0px rgba(0, 0, 0, 0.76) inset;
+  -webkit-box-shadow: 2px 0px 3px 0px rgba(0, 0, 0, 0.76) inset;
+  -moz-box-shadow: 2px 0px 3px 0px rgba(0, 0, 0, 0.76) inset;
+  overflow-y: auto;
+}
+
+main .paper {
+  background: white;
+  aspect-ratio: 8.5/11;
+  /*  Word Format  */
+  height: 100%;
+  scale: 0.9;
+  margin: auto;
+  box-shadow: 0px 0px 3em 0.4em rgba(0, 0, 0, 0.64);
+  -webkit-box-shadow: 0px 0px 3em 0.4em rgba(0, 0, 0, 0.64);
+  -moz-box-shadow: 0px 0px 3em 0.4em rgba(0, 0, 0, 0.64);
+}
+
+section .sidebar {
+  height: 100%;
+  flex-basis: 15%;
+  padding-inline: 1rem;
+  @apply bg-gray-700;
+}
+
+.sidebar-list {
+  padding-top: 5vh;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 3rem;
+  flex-direction: column;
+}
+.sidebar-list li {
+  color: whitesmoke;
+  text-align: center;
+}
+.sidebar-list button {
+  cursor: pointer;
+}
+.sidebar-list svg {
+  transition: all 0.1s ease-in;
+  height: 26px;
+  width: 26px;
+  padding: 10px;
+}
+.sidebar-list button:hover > svg {
+  background-color: white;
+  @apply text-gray-700 rounded-full;
+}
+.sidebar-list li p {
+  font-size: 10px;
+  line-height: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.8pt;
+}
+
+section .fields {
+  height: 100%;
+  flex: 1;
+  box-shadow: 5px 0px 3px 0px rgba(0, 0, 0, 0.85);
+  -webkit-box-shadow: 5px 0px 3px 0px rgba(0, 0, 0, 0.85);
+  -moz-box-shadow: 5px 0px 3px 0px rgba(0, 0, 0, 0.85);
+
+  @apply bg-gray-200;
+}

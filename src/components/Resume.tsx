@@ -1,3 +1,4 @@
+import { ResumeContext } from "@/ResumeContext";
 import {
   fa1,
   fa2,
@@ -9,12 +10,15 @@ import {
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useContext } from "react";
 
 function Resume() {
+  const { personalInfo } = useContext(ResumeContext);
+
   return (
     <div className="paper">
       <div className="resume-content">
-        <h2 className="name">Jordan Smith</h2>
+        <h2 className="name">{ personalInfo.firstName } Smith</h2>
         <p className="position">Experienced Technology Executive</p>
         <div className="flex items-center r-gap-3 r-mt-4 r-mb-5">
           <p className="text-icons">

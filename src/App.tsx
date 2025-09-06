@@ -1,73 +1,38 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./assets/App.css";
 import "./assets/resume.css";
+import FormSection from "./components/FormSection";
 import Resume from "./components/Resume";
-import {
-  faBriefcase,
-  faCertificate,
-  faGraduationCap,
-  faHandFist,
-  faHelmetSafety,
-  faScrewdriverWrench,
-  faUser,
-} from "@fortawesome/free-solid-svg-icons";
+import Sidebar from "./components/Sidebar";
+import { ResumeContext } from "./ResumeContext";
+
+import { useState } from "react";
+
+export type PersonalInfo = {
+  firstName: string;
+};
 
 function App() {
+  const [form, setForm] = useState(0);
+
+  const [personalInfo, setPersonalInfo] = useState<PersonalInfo>({
+    firstName: "Johnathan",
+  });
+
   return (
-    <>
-      <section>
-        <div className="sidebar">
-          <ul className="sidebar-list">
-            <li>
-              <button>
-                <FontAwesomeIcon icon={faUser} />
-                <p>Personal Information</p>
-              </button>
-            </li>
-            <li>
-              <button>
-                <FontAwesomeIcon icon={faBriefcase} />
-                <p>Work Experience</p>
-              </button>
-            </li>
-            <li>
-              <button>
-                <FontAwesomeIcon icon={faGraduationCap} />
-                <p>Educational Background</p>
-              </button>
-            </li>
-            <li>
-              <button>
-                <FontAwesomeIcon icon={faHandFist} />
-                <p>Strengths</p>
-              </button>
-            </li>
-            <li>
-              <button>
-                <FontAwesomeIcon icon={faCertificate} />
-                <p>Strengths</p>
-              </button>
-            </li>
-            <li>
-              <button>
-                <FontAwesomeIcon icon={faScrewdriverWrench} />
-                <p>Skills</p>
-              </button>
-            </li>
-            <li>
-              <button>
-                <FontAwesomeIcon icon={faHelmetSafety} />
-                <p>Projects</p>
-              </button>
-            </li>
-          </ul>
-        </div>
-        <div className="fields"></div>
+    <ResumeContext.Provider
+      value={{
+        personalInfo,
+        setPersonalInfo,
+      }}
+    >
+      <section className="config-section">
+        <Sidebar form={form} setForm={setForm} />
+        <FormSection form={form} />
       </section>
       <main>
         <Resume />
       </main>
-    </>
+    </ResumeContext.Provider>
   );
 }
 

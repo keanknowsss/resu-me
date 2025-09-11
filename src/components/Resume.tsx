@@ -1,52 +1,78 @@
-import { ResumeContext } from "@/ResumeContext";
+import { useResumeContext } from "@/ResumeContext";
 import {
   fa1,
   fa2,
   fa3,
   faAt,
   faCalendarDays,
+  faGlobe,
   faLink,
   faLocationDot,
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useContext } from "react";
 
 function Resume() {
-  const { personalInfo } = useContext(ResumeContext);
+  const { personalInfo } = useResumeContext();
+
+  const hasName = personalInfo.firstName || personalInfo.middleName || personalInfo.lastName;
 
   return (
     <div className="paper">
       <div className="resume-content">
-        <h2 className="name">{ personalInfo.firstName } Smith</h2>
-        <p className="position">Experienced Technology Executive</p>
+        {hasName && (
+          <h2 className="name">
+            {personalInfo.firstName} {personalInfo.middleName} {personalInfo.lastName}
+          </h2>
+        )}
+
+        {personalInfo.jobTitle && <p className="position">{personalInfo.jobTitle}</p>}
         <div className="flex items-center r-gap-3 r-mt-4 r-mb-5">
-          <p className="text-icons">
-            <FontAwesomeIcon icon={faPhone} />
-            +63 927 141 8624
-          </p>
-          <p className="text-icons">
-            <FontAwesomeIcon icon={faAt} />
-            help@enhanvecv.com
-          </p>
-          <p className="text-icons">
-            <FontAwesomeIcon icon={faLink} />
-            linkedin.com
-          </p>
-          <p className="text-icons">
-            <FontAwesomeIcon icon={faLocationDot} />
-            San Francisco, California
-          </p>
+          {/* Contact Number */}
+          {personalInfo.contactNumber && (
+            <p className="text-icons">
+              <FontAwesomeIcon icon={faPhone} />
+              {personalInfo.contactNumber}
+            </p>
+          )}
+          {/* Email */}
+          {personalInfo.email && (
+            <p className="text-icons">
+              <FontAwesomeIcon icon={faAt} />
+              {personalInfo.email}
+            </p>
+          )}
+          {/* LinkedIn */}
+          {personalInfo.linkedIn && (
+            <p className="text-icons">
+              <FontAwesomeIcon icon={faLink} />
+              {personalInfo.linkedIn}
+            </p>
+          )}
+          {/* Location */}
+          {personalInfo.location && (
+            <p className="text-icons">
+              <FontAwesomeIcon icon={faLocationDot} />
+              {personalInfo.location}
+            </p>
+          )}
+          {/* Location */}
+          {personalInfo.website && (
+            <p className="text-icons">
+              <FontAwesomeIcon icon={faGlobe} />
+              {personalInfo.website}
+            </p>
+          )}
         </div>
         <div className="flex">
           <div className="basis-3/5 r-pe-5">
-            <div className="r-pb-5">
-              <h3 className="section-title">Summary</h3>
-              <p className="content-text">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate accusantium
-                fugit dolorem, nihil tenetur veniam voluptates minus sunt magni repellendus.
-              </p>
-            </div>
+            {personalInfo.summary && (
+              <div className="r-pb-5">
+                <h3 className="section-title">Summary</h3>
+                <p className="content-text">{personalInfo.summary}</p>
+              </div>
+            )}
+
             <div className="r-pb-5">
               <h3 className="section-title">Experience</h3>
               <div className="subsection">
